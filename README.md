@@ -1,3 +1,11 @@
 # Weather-forcasting
-Weather Forecasting Application is one of the most common mini project in Software Development .
-A weather forecasting project typically involves using historical weather data and machine learning models to predict future weather conditions, such as temperature, humidity, wind speed, or rainfall.
+Overview:
+This project focuses on predicting weather conditions using machine learning models. The objective is to forecast weather features such as temperature, humidity, and precipitation based on historical weather data. By leveraging data analysis and various machine learning techniques, this project aims to provide accurate weather predictions.
+Features:
+Data Preprocessing: Cleans and prepares the data for analysis and modeling.
+Exploratory Data Analysis (EDA): Provides insights into the dataset with visualizations.
+Machine Learning Models: Includes algorithms like:
+Linear Regression
+Random Forest
+Gradient Boosting
+Model Evaluation: Evaluates models using metrics like MAE, RMSE, and R-squared.
