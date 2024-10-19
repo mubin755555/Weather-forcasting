@@ -11,3 +11,9 @@ Linear Regression
 Random Forest
 Gradient Boosting
 Model Evaluation: Evaluates models using metrics like MAE, RMSE, and R-squared.
+
+
+git clone https://github.com/your-username/weather-prediction.git
+cd weather-prediction
+git clone https://github.com/your-username/weather-prediction.git
+cd weather-prediction
