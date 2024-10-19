@@ -1,6 +1,8 @@
 # Weather-forcasting
 Overview:
 This project focuses on predicting weather conditions using machine learning models. The objective is to forecast weather features such as temperature, humidity, and precipitation based on historical weather data. By leveraging data analysis and various machine learning techniques, this project aims to provide accurate weather predictions.
+
+  
 Features:
 Data Preprocessing: Cleans and prepares the data for analysis and modeling.
 Exploratory Data Analysis (EDA): Provides insights into the dataset with visualizations.
