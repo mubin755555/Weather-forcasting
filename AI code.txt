@@ -1,0 +1,75 @@
+# This Python 3 environment comes with many helpful analytics libraries installed
+# It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python
+# For example, here's several helpful packages to load
+
+import numpy as np # linear algebra
+import pandas as pd# data processing, CSV file I/O (e.g. pd.read_csv)
+
+# Input data files are available in the read-only "../input/" directory
+# For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory
+
+import os
+for dirname, _, filenames in os.walk('/kaggle/input'):
+    for filename in filenames:
+        print(os.path.join(dirname, filename))
+
+# You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using "Save & Run All" 
+# You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session
+
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+import scipy
+import re
+import missingno as mso
+from scipy import stats
+from scipy.stats import ttest_ind
+from scipy.stats import pearsonr
+from sklearn.preprocessing import StandardScaler,LabelEncoder
+from sklearn.model_selection import train_test_split 
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.svm import SVC
+from sklearn.ensemble import GradientBoostingClassifier
+from xgboost import XGBClassifier
+from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
+
+
+data=pd.read_csv("/kaggle/input/weather-prediction/seattle-weather.csv")
+data.head()
+
+
+import warnings
+warnings.filterwarnings('ignore')
+sns.countplot("weather",data=data,palette="hls")
+
+
+countrain=len(data[data.weather=="rain"])
+countsun=len(data[data.weather=="sun"])
+countdrizzle=len(data[data.weather=="drizzle"])
+countsnow=len(data[data.weather=="snow"])
+countfog=len(data[data.weather=="fog"])
+print("Percent of Rain:{:2f}%".format((countrain/(len(data.weather))*100)))
+print("Percent of Sun:{:2f}%".format((countsun/(len(data.weather))*100)))
+print("Percent of Drizzle:{:2f}%".format((countdrizzle/(len(data.weather))*100)))
+print("Percent of Snow:{:2f}%".format((countsnow/(len(data.weather))*100)))
+print("Percent of Fog:{:2f}%".format((countfog/(len(data.weather))*100)))
+
+
+
+sns.set(style="darkgrid")
+fig,axs=plt.subplots(2,2,figsize=(10,8))
+sns.histplot(data=data,x="precipitation",kde=True,ax=axs[0,0],color='green')
+sns.histplot(data=data,x="temp_max",kde=True,ax=axs[0,1],color='red')
+sns.histplot(data=data,x="temp_min",kde=True,ax=axs[1,0],color='skyblue')
+sns.histplot(data=data,x="wind",kde=True,ax=axs[1,1],color='orange')
+
+
+sns.set(style="darkgrid")
+fig,axs=plt.subplots(2,2,figsize=(10,8))
+sns.violinplot(data=data,x="precipitation",kde=True,ax=axs[0,0],color='green')
+sns.violinplot(data=data,x="temp_max",kde=True,ax=axs[0,1],color='red')
+sns.violinplot(data=data,x="temp_min",kde=True,ax=axs[1,0],color='skyblue')
+sns.violinplot(data=data,x="wind",kde=True,ax=axs[1,1],color='yellow')
+
+plt.figure(figsize=(12,6))
+sns.boxplot("precipitation","weather",data=data,palette="YlOrBr")
