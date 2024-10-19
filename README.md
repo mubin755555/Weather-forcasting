@@ -20,4 +20,19 @@ Python 3.x
 
 Jupyter Notebook
 
-# Libraries:  pandas,numpy,matplotlib,scikit-learn
+# Libraries:
+pandas,numpy,matplotlib,scikit-learn
+
+# Dataset
+The dataset used in this project can be found "\seattle-weather (1).csv" or you can use your own dataset. Ensure the dataset includes the following columns:
+
+Date
+Temperature
+Humidity
+Wind Speed
+Precipitation
+
+# Future Work
+Add more weather features such as wind direction and pressure.
+Explore deep learning models like LSTM for better time-series forecasting.
+Implement a web-based interface for real-time weather predictions.
